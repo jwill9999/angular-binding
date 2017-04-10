@@ -4,9 +4,30 @@
         <label>Server Name</label>
         <input type="text" class="form-control" [(ngModel)]="newServerName">
         <label>Server Content</label>
-        <input type="text" class="form-control" [(ngModel)]="newServerContent">
+        <input type="text" class="form-control" #serverContent>
         <br>
-        <button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
-        <button class="btn btn-primary" (click)="onAddBlueprint()">Add Server Blueprint</button>
+        <button class="btn btn-primary " (click)="onAddServer() ">Add Server</button>
+        <button class="btn btn-primary " (click)="onAddBlueprint() ">Add Server Blueprint</button>
     </div>
 </div>
+
+<!--LOCAL REFERENCE
+You can also use local input references as an alternative way of passing the
+input values to the class.
+1. Add a reference to the input html element #referenceName
+<input type="text " class="form-control " #referenceName>
+2. Add that as an argument to the function call
+<button class="btn btn-primary " (click)="onAddServer(referenceName) ">Add Server</button>
+3. add this to the ts file in the component where data recieved
+   onAddServer(referenceName: HTMLInputElement){
+      this.serverCreated.emit({
+        serverName: referenceName.value,
+        serverContent: this.newServerContent
+      });
+and change the key value data as above to reflect the referenceName argument
+  }-->
+
+<!--ViewChild Method
+ Note the Server content input element where we add a nameReference
+ This is used in this ts file and imorted as a ViewChild and used inside
+ to reference the input value on that input element. Just another way -->
