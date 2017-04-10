@@ -1,0 +1,20 @@
+<div class="container">
+    <app-cockpit (serverCreated)="onServerAdd($event)" (blueprintCreated)=" onBlueprintAdd($event)">
+    </app-cockpit>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement">
+            </app-server-element>
+        </div>
+    </div>
+</div>
+
+
+<!--Here we add our two components and to allow the dynamic looping of data into the app-server serverElement
+we add the ngfor loop here on the parent app component.-->
+
+<!--so we loop through the serverElements in the array in the app component ts file and we need to output it into the app-server-elements component-->
+
+<!--we need to bind the element property used in the iteration
+inside app-server element to the variable serverElement-->
